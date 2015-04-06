@@ -20,26 +20,26 @@ def findAvailableSerialPorts():
     return result
 
 def openBluetoothConnection(port):
-	"""Opens a serial connection over bluetooth.
+    """Opens a serial connection over bluetooth.
 
-	:returns:
-	    An open connection ready for reading/writing
-	"""
+    :returns:
+        An open connection ready for reading/writing
+    """
     bluetoothSerial = serial.Serial(port, baudrate=9600, timeout=5)
     return bluetoothSerial
 
 def closeBluetoothConnection(bluetoothSerial):
-	"""Close an open serial connection
-	"""
-	try:
+    """Close an open serial connection
+    """
+    try:
         bluetoothSerial.close()
     except:
         pass # Ignore errors when closing the connection
 
 def blinkLED(bluetoothSerial):
-	"""Blink the LED on the Arduino UNO a user specified number of times.
+    """Blink the LED on the Arduino UNO a user specified number of times.
        Requires that the appropriate sketch be installed on the Arduino.
-	"""
+    """
     blinks = None
     while True:
         try:
